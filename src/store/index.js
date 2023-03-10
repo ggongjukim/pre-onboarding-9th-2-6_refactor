@@ -1,9 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import reserveReducer from './slices/reservationSlice';
+import {
+  productReducer,
+  categoriesReducer,
+  modalReducer,
+  reserveReducer,
+} from './slices';
 
 const store = configureStore({
   reducer: {
+    product: productReducer,
+    categories: categoriesReducer,
+    modal: modalReducer,
     reserve: reserveReducer,
   },
 });
