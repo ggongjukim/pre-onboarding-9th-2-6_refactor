@@ -20,7 +20,7 @@ npm start
 
 ## 🔗 배포 링크
 
-[https://todolist-best-practice-two.vercel.app/](https://todolist-best-practice-two.vercel.app/)
+[https://pre-onboarding-9th-2-6.vercel.app/](https://pre-onboarding-9th-2-6.vercel.app/)
 
 <br/>
 <br/>
