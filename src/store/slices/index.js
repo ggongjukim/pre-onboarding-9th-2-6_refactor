@@ -1,1 +1,1 @@
-// slices.js
+export { default as productReducer } from './productSlice';
