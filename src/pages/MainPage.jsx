@@ -2,14 +2,30 @@ import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import ProductList from '../components/ProductList';
+import { Modal, ProductFilter, ProductList } from '../components';
 import { fetchProductData } from '../store/slices/productSlice';
 
 export default function MainPage() {
   const products = useSelector((state) => state.product.products);
   const dispatch = useDispatch();
 
-  console.log(products);
+  const spaceCategories = useSelector(
+    (state) => state.categories.spaceCategories,
+  );
+  const priceCategories = useSelector(
+    (state) => state.categories.priceCategories,
+  );
+
+  const isInRange = (range, targetNumber) => {
+    return targetNumber >= range[0] && targetNumber <= range[1];
+  };
+
+  const filteredProductList = products.filter((product) => {
+    return (
+      spaceCategories.includes(product.spaceCategory) &&
+      isInRange(priceCategories, product.price)
+    );
+  });
 
   useEffect(() => {
     async function fetchData() {
@@ -18,8 +34,15 @@ export default function MainPage() {
       dispatch(fetchProductData(data));
     }
     fetchData();
-    if (!products.length) fetchData();
-  }, []);
 
-  return <ProductList products={products}></ProductList>;
+    if (!products.length) fetchData();
+  }, [dispatch, products.length]);
+
+  return (
+    <>
+      <ProductFilter />
+      <ProductList products={filteredProductList}></ProductList>
+      <Modal />
+    </>
+  );
 }
