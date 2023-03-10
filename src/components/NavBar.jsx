@@ -1,26 +1,21 @@
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import {
   Box,
   Flex,
-  Avatar,
   Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useColorModeValue,
   Stack,
   useColorMode,
   Center,
   Icon,
+  Text,
 } from '@chakra-ui/react';
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
 
 export default function Nav() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // toggleColorMode는 colorMode를 dark나 light로 변경해줌
   const { colorMode, toggleColorMode } = useColorMode();
   // useColorModeValue(lightModeValue, darkModeValue)
@@ -36,47 +31,30 @@ export default function Nav() {
               <Button bg={bg} onClick={toggleColorMode}>
                 {colorMode === 'light' ? <BsFillMoonFill /> : <BsFillSunFill />}
               </Button>
-
-              <Icon
-                // onClick={() => navigate('/reservations')}
-                cursor="pointer"
-                as={FiShoppingCart}
-                h={5}
-                w={5}
-                alignSelf="center"
-              />
-
-              <Menu>
-                <MenuButton
-                  as={Button}
-                  rounded="full"
-                  variant="link"
+              <Center>
+                <Icon
+                  onClick={() => navigate('/reservations')}
                   cursor="pointer"
-                  minW={0}>
-                  <Avatar
-                    size="sm"
-                    src="https://avatars.dicebear.com/api/male/username.svg"
-                  />
-                </MenuButton>
-                <MenuList alignItems="center">
-                  <br />
-                  <Center>
-                    <Avatar
-                      size="2xl"
-                      src="https://avatars.dicebear.com/api/male/username.svg"
-                    />
-                  </Center>
-                  <br />
-                  <Center>
-                    <p>Username</p>
-                  </Center>
-                  <br />
-                  <MenuDivider />
-                  <MenuItem>Your Servers</MenuItem>
-                  <MenuItem>Account Settings</MenuItem>
-                  <MenuItem>Logout</MenuItem>
-                </MenuList>
-              </Menu>
+                  as={FiShoppingCart}
+                  h={5}
+                  w={5}
+                  alignSelf="center"
+                />
+                <Box position="absolute" top="15px" right="10px">
+                  <Text
+                    color="white"
+                    fontSize="8px"
+                    bg="blue.500"
+                    w={3}
+                    h={3}
+                    borderRadius="full"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center">
+                    15
+                  </Text>
+                </Box>
+              </Center>
             </Stack>
           </Flex>
         </Flex>
