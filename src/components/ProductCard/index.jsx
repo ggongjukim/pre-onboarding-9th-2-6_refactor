@@ -1,3 +1,7 @@
+import { useCallback } from 'react';
+
+import { Link } from 'react-router-dom';
+
 import {
   Flex,
   Circle,
@@ -10,12 +14,23 @@ import {
   Tooltip,
   GridItem,
   Text,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { FiShoppingCart } from 'react-icons/fi';
 
+import { useModal } from '../../hooks';
+
 export default function ProductCard({ product }) {
+  console.log(product);
+  const { isOpen, onClose, onOpen } = useDisclosure();
+  const { openModal } = useModal();
+
+  const onClickCard = useCallback(() => {
+    openModal('ProductDetail', product);
+  }, [openModal, product]);
+
   return (
-    <GridItem p={50}>
+    <GridItem p={50} onClick={onClickCard}>
       <Box
         bg={useColorModeValue('white', 'gray.800')}
         borderWidth="1px"
@@ -34,7 +49,7 @@ export default function ProductCard({ product }) {
         <Box p="6">
           <Box d="flex" alignItems="baseline">
             <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
-              {product.spaceCategory}
+              @{product.spaceCategory}
             </Badge>
           </Box>
           <Flex
@@ -56,7 +71,7 @@ export default function ProductCard({ product }) {
               gap="3"
               mx="2"
               my="2">
-              <Text>{product.price}</Text>
+              <Text>{product.price}원</Text>
 
               <Tooltip
                 label="Add to cart"
