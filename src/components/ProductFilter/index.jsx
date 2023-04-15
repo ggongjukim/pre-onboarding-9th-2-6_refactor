@@ -9,6 +9,7 @@ import {
   RangeSliderFilledTrack,
   RangeSliderThumb,
   Spacer,
+  HStack,
 } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -49,8 +50,8 @@ export default function ProductFilter() {
   }
 
   return (
-    <Box>
-      <Flex justifyContent="space-around">
+    <Box marginTop="10px">
+      <Flex justifyContent="center">
         <Box px={8} py={4} minW="400px">
           <Flex mb={4} justifyContent="space-between" alignItems="center">
             <Text fontSize="lg" as="b">

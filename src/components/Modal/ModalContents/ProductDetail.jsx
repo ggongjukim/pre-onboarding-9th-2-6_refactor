@@ -5,6 +5,7 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
+  ModalFooter,
   ModalHeader,
   Text,
 } from '@chakra-ui/react';
@@ -25,7 +26,7 @@ export default function ProductDetail({ content }) {
       <ModalHeader fontSize="2xl">{`#${idx} ${name}`}</ModalHeader>
       <ModalCloseButton size="lg" />
       <ModalBody display="flex" gap="20px">
-        <Image src={mainImage} />
+        <Image src={mainImage} rounded="lg" />
         <Box display="flex" flexDir="column">
           <Box>
             <Badge colorScheme="blue" flexGrow="0">
@@ -43,6 +44,7 @@ export default function ProductDetail({ content }) {
           </Box>
         </Box>
       </ModalBody>
+      <ModalFooter color="white">-Like a Local-</ModalFooter>
     </ModalContent>
   );
 }
