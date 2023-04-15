@@ -39,7 +39,7 @@ export default function ProductCard({ product }) {
       rounded="lg"
       shadow="lg"
       position="relative"
-      w="100%"
+      w="400px"
       h="500px">
       <Image
         src={product.mainImage}
