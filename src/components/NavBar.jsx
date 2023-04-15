@@ -33,7 +33,7 @@ export default function Nav() {
             Like A Local
           </Box>
 
-          <Flex alignItems="center">
+          <Flex alignItems="center" margin="20px">
             <Stack direction="row" spacing={7}>
               <Button bg={bg} onClick={toggleColorMode}>
                 {colorMode === 'light' ? <BsFillMoonFill /> : <BsFillSunFill />}
@@ -47,7 +47,7 @@ export default function Nav() {
                   w={5}
                   alignSelf="center"
                 />
-                <Box position="absolute" top="15px" right="10px">
+                <Box position="absolute" top="15px" right="30px">
                   <Text
                     color="white"
                     fontSize="8px"
